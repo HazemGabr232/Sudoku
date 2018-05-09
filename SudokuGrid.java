@@ -74,7 +74,10 @@ return player;
 public void setCells (int[][] player){
  for (int row = 0; row < GRID_SIZE; row++) {
         for(int col = 0; col < GRID_SIZE; col++) {
- sudokuCells[row][col].setText(String.valueOf(player[row][col]));
+	if (player[row][col]==0)
+	   sudokuCells[row][col].setText("");
+	else	
+ 	   sudokuCells[row][col].setText(String.valueOf(player[row][col]));
         
         }
  }
