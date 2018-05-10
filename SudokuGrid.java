@@ -22,7 +22,7 @@ private int[][] solution;
 
 public SudokuGrid () {
     sudokuCells = new TextField[GRID_SIZE][GRID_SIZE];
-    createSudokuGrid();
+   
     for (int row = 0; row < GRID_SIZE; row++) {
         for(int col = 0; col < GRID_SIZE; col++) {
             sudokuCells[row][col] = new TextField() {
@@ -65,22 +65,7 @@ public SudokuGrid () {
     setGridLinesVisible(true);
 }
 
-private void createSudokuGrid() {
-  
-    for (int i = 0; i  < GRID_SIZE; i++) {
-        RowConstraints rc = new RowConstraints();
-        rc.setVgrow(Priority.ALWAYS) ; 
-        rc.setFillHeight(true); 
-       
-        getRowConstraints().add(rc);
 
-        ColumnConstraints cc = new ColumnConstraints();
-        cc.setHgrow(Priority.ALWAYS) ; 
-        cc.setFillWidth(true); 
-        getColumnConstraints().add(cc);
-    }
-
-}
 public int[][] getPlayer(){
     int [][]player =new int[9][9];
   for (int row = 0; row < GRID_SIZE; row++) {

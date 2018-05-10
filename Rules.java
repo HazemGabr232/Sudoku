@@ -70,15 +70,9 @@ public class Rules {
 	public boolean checkForSuccessGeneral() {
 		
 		int[][] combined = new int[9][9];
-		for(int row = 0; row < 9; row++) {
-			for(int col = 0; col <9; col++) {
-				if(initial[row][col]!=0) {
-					combined[row][col] = initial[row][col];
-				} else {
-					combined[row][col] = player[row][col];
-				}
-			}
-		}
+		
+		combined = player;
+		
 		for(int row = 0; row<9; row++) {
 			int sum = 0;
 			for(int col = 0; col<9; col++) {
