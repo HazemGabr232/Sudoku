@@ -34,12 +34,33 @@ public SudokuGrid () {
                         }
                     }
                 };
+            
             sudokuCells[row][col].setPrefSize(60, 60);
-            sudokuCells[row][col].setStyle("-fx-background-color: yellow;");
-            add(sudokuCells[row][col], col, row);
+             add(sudokuCells[row][col], col, row);
            
         }
-    }   
+    }
+    for (int row_offset = 0; row_offset < 9; row_offset+=3) { 
+			
+			for(int col_offset = 0; col_offset <9; col_offset+=3) { 
+				
+				int sum = 0;
+				
+				for (int row = 0; row < 3; row++) {
+					
+					for (int col = 0; col < 3; col++) {
+					if ((row_offset+col_offset)%2==0)
+                                             sudokuCells[row + row_offset][col + col_offset].setStyle("-fx-background-color: yellow;");
+                                        else
+                                             sudokuCells[row + row_offset][col + col_offset].setStyle("-fx-background-color: white;");  
+                                            
+					}
+				}
+                        }
+    }
+
+            
+           
     setPrefSize(270, 270); 
     setGridLinesVisible(true);
 }
@@ -74,10 +95,11 @@ return player;
 public void setCells (int[][] player){
  for (int row = 0; row < GRID_SIZE; row++) {
         for(int col = 0; col < GRID_SIZE; col++) {
-	if (player[row][col]==0)
+if (player[row][col]==0)
 	   sudokuCells[row][col].setText("");
 	else	
  	   sudokuCells[row][col].setText(String.valueOf(player[row][col]));
+
         
         }
  }
